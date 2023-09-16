@@ -121,7 +121,7 @@ and not merge[i][j-move]:
 
     return board
 
-#spawn
+#put pieces on board as a start
 def new(board):
     count=0
     over = False
@@ -137,7 +137,7 @@ def new(board):
     if count <1:
         over = True    
     return board,over
-#colors
+#colors used in the game
 colors = {0:(211, 231, 237),
           2:(179, 217, 230),
           4:(152, 201, 217),
@@ -156,7 +156,7 @@ colors = {0:(211, 231, 237),
           6:(255,255,255)}
 
 
-# drawing the board
+# drawing the board 
 def board():
     rect = pygame.Rect(80,80,350,350)
     rectangle= pygame.draw.rect(display,colors['bg'],rect)
@@ -165,7 +165,7 @@ def board():
     display.blit(h_t,(10,450))
     display.blit(score_t,(10,470))
     
-# tiles
+# drawing the tiles on board
 def tile(board):
     for i in range(4):
         for j in range(4):
@@ -186,7 +186,7 @@ def tile(board):
                 rec_text = text.get_rect(center = (j * 95 +112, i*95+112))
                 display.blit(text,rec_text)
                 pygame.draw.rect(display,colors['black'],[j*95+70, i*95+70,75,75],2,5)
-#game
+# main game loop
 running = True
 while running:
     time.tick(fps)
